@@ -1742,15 +1742,28 @@ NOTE:   unlike bitcoin we are using PREVIOUS block height here,
 CAmount GetBlockSubsidy(int nPrevBits, int nPrevHeight, const Consensus::Params& consensusParams, bool fSuperblockPartOnly)
 {
     if (nPrevHeight == 0) {
-        return 850000 * COIN;
+        return 16500000 * COIN;
     }
 
     CAmount nSubsidy = 15 * COIN;
 
-    // yearly decline of production by ~8.333% per year until reached max coin ~31M.
-    for (int i = consensusParams.nSubsidyHalvingInterval; i <= nPrevHeight; i += consensusParams.nSubsidyHalvingInterval) {
-        nSubsidy -= nSubsidy/12;
+    if (nHeight<11 && nHeight>0)
+    {
+     nSubsidy = 8000 * COIN;
     }
+    if (nHeight<21 && nHeight>10)
+    {
+        nSubsidy = 4000 * COIN;
+    }
+    if (nHeight<31 && nHeight>20)
+    {
+        nSubsidy = 2000 * COIN;
+    }
+    if (nHeight<40 && nHeight>30)
+    {
+        nSubsidy = 1000 * COIN;
+    }
+
 
     return fSuperblockPartOnly ? 0 : nSubsidy;
 }
@@ -4447,7 +4460,7 @@ bool LoadBlockIndex()
     return true;
 }
 
-bool InitBlockIndex(const CChainParams& chainparams) 
+bool InitBlockIndex(const CChainParams& chainparams)
 {
     LOCK(cs_main);
 
@@ -4891,12 +4904,12 @@ bool static AlreadyHave(const CInv& inv) EXCLUSIVE_LOCKS_REQUIRED(cs_main)
     case MSG_BLOCK:
         return mapBlockIndex.count(inv.hash);
 
-    /* 
+    /*
         EasyNode Related Inventory Messages
 
         --
 
-        We shouldn't update the sync times for each of the messages when we already have it. 
+        We shouldn't update the sync times for each of the messages when we already have it.
         We're going to be asking many nodes upfront for the full inventory list, so we'll get duplicates of these.
         We want to only update the time on new hits, so that we can time out appropriately if needed.
     */
