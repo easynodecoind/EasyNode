@@ -1,0 +1,20 @@
+<!DOCTYPE RCC><RCC version="1.0">
+    <qresource prefix="/translations">
+        <file alias="bg">locale/easynode_bg.qm</file>
+        <file alias="de">locale/easynode_de.qm</file>
+        <file alias="en">locale/easynode_en.qm</file>
+        <file alias="es">locale/easynode_es.qm</file>
+        <file alias="fi">locale/easynode_fi.qm</file>
+        <file alias="fr">locale/easynode_fr.qm</file>
+        <file alias="it">locale/easynode_it.qm</file>
+        <file alias="ja">locale/easynode_ja.qm</file>
+        <file alias="pl">locale/easynode_pl.qm</file>
+        <file alias="pt">locale/easynode_pt.qm</file>
+        <file alias="ru">locale/easynode_ru.qm</file>
+        <file alias="sk">locale/easynode_sk.qm</file>
+        <file alias="sv">locale/easynode_sv.qm</file>
+        <file alias="vi">locale/easynode_vi.qm</file>
+        <file alias="zh_CN">locale/easynode_zh_CN.qm</file>
+        <file alias="zh_TW">locale/easynode_zh_TW.qm</file>
+    </qresource>
+</RCC>

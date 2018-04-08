@@ -1,0 +1,6 @@
+usr/local/bin/easynode-qt usr/bin
+share/pixmaps/easynode32.xpm usr/share/pixmaps
+share/pixmaps/easynode16.xpm usr/share/pixmaps
+share/pixmaps/easynode128.png usr/share/pixmaps
+debian/easynode-qt.desktop usr/share/applications
+debian/easynode-qt.protocol usr/share/kde4/services/
