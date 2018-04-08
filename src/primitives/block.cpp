@@ -9,14 +9,16 @@
 #include "tinyformat.h"
 #include "utilstrencodings.h"
 #include "crypto/common.h"
-#include "crypto/neoscrypt.h"
+//#include "crypto/neoscrypt.h"
 
 uint256 CBlockHeader::GetHash() const
 {
-        uint256 thash;
-        unsigned int profile = 0x0;
-        neoscrypt((unsigned char *) &nVersion, (unsigned char *) &thash, profile);
-        return thash;
+    //    uint256 thash;
+    //    unsigned int profile = 0x0;
+    //    neoscrypt((unsigned char *) &nVersion, (unsigned char *) &thash, profile);
+    //    return thash;
+
+     return HashX11(BEGIN(nVersion), END(nNonce));
 
 }
 
