@@ -1742,15 +1742,28 @@ NOTE:   unlike bitcoin we are using PREVIOUS block height here,
 CAmount GetBlockSubsidy(int nPrevBits, int nPrevHeight, const Consensus::Params& consensusParams, bool fSuperblockPartOnly)
 {
     if (nPrevHeight == 0) {
-        return 850000 * COIN;
+        return 16500000 * COIN;
     }
 
     CAmount nSubsidy = 15 * COIN;
 
-    // yearly decline of production by ~8.333% per year until reached max coin ~31M.
-    for (int i = consensusParams.nSubsidyHalvingInterval; i <= nPrevHeight; i += consensusParams.nSubsidyHalvingInterval) {
-        nSubsidy -= nSubsidy/12;
+    if (nPrevHeight<10 && nPrevHeight>1)
+    {
+     nSubsidy = 8000 * COIN;
     }
+    if (nPrevHeight<20 && nPrevHeight>11)
+    {
+        nSubsidy = 4000 * COIN;
+    }
+    if (nPrevHeight<30 && nPrevHeight>21)
+    {
+        nSubsidy = 2000 * COIN;
+    }
+    if (nPrevHeight<41 && nPrevHeight>31)
+    {
+        nSubsidy = 1000 * COIN;
+    }
+
 
     return fSuperblockPartOnly ? 0 : nSubsidy;
 }
