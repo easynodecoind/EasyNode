@@ -1751,15 +1751,15 @@ CAmount GetBlockSubsidy(int nPrevBits, int nPrevHeight, const Consensus::Params&
     {
      return 8000 * COIN;
     }
-    if (nPrevHeight<20 && nPrevHeight>11)
+    if (nPrevHeight<20 && nPrevHeight>9)
     {
         return 4000 * COIN;
     }
-    if (nPrevHeight<30 && nPrevHeight>21)
+    if (nPrevHeight<30 && nPrevHeight>19)
     {
         return 2000 * COIN;
     }
-    if (nPrevHeight<41 && nPrevHeight>31)
+    if (nPrevHeight<41 && nPrevHeight>29)
     {
         return 1000 * COIN;
     }
